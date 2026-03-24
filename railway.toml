@@ -1,0 +1,2 @@
+[deploy]
+startCommand = "python smart_plug_controller.py"
