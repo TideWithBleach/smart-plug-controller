@@ -39,7 +39,7 @@ TUYA_API_SECRET = _require_env("TUYA_API_SECRET")
 TUYA_DEVICE_ID  = _require_env("TUYA_DEVICE_ID")
 TUYA_API_REGION = os.environ.get("TUYA_API_REGION", "us")
 
-TEMP_ON_THRESHOLD      = float(os.environ.get("TEMP_ON_THRESHOLD", "65.0"))
+TEMP_ON_THRESHOLD      = float(os.environ.get("TEMP_ON_THRESHOLD", "75.0"))
 CHECK_INTERVAL_SECONDS = int(os.environ.get("CHECK_INTERVAL", "1800"))
 
 # Saint Cloud, FL coordinates (no weather API key needed)
