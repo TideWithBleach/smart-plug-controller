@@ -285,7 +285,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tuya Plug Tracker — Saint Cloud, FL</title>
+<title>Shed AC Usage — Saint Cloud, FL</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -320,7 +320,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 </style>
 </head>
 <body>
-<h1>&#x26A1; Tuya Plug Tracker</h1>
+<h1>&#x26A1; Shed AC Usage</h1>
 <p class="subtitle" id="subtitle">Saint Cloud, FL &nbsp;&middot;&nbsp; Loading&hellip;</p>
 
 <div class="stats-grid" id="statsGrid">
