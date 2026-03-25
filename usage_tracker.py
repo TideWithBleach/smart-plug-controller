@@ -103,7 +103,7 @@ def fetch_tuya_logs(start_ms: int, end_ms: int) -> list[dict]:
         # tinytuya.Cloud.cloudrequest is the raw authenticated GET helper
         result = cloud.cloudrequest(
             f"/v1.0/devices/{TUYA_DEVICE_ID}/logs",
-            params=params,
+            query=params,
         )
 
         if not result.get("success"):
