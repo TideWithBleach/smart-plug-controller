@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Shed AC Usage (Flask dashboard)",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["usage_tracker.py"],
+      "port": 8080
+    },
+    {
+      "name": "Smart Plug Controller",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["smart_plug_controller.py"],
+      "port": 0
+    }
+  ]
+}
