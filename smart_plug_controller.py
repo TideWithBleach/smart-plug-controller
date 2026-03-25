@@ -1,7 +1,7 @@
 """
 Smart Plug Temperature Controller
 Controls a Tuya/Smart Life plug based on outside temperature in Saint Cloud, FL.
-Turns ON when temp drops below threshold, OFF when it rises above.
+Turns ON when temp rises above threshold, OFF when it drops below.
 """
 
 import os
@@ -94,7 +94,7 @@ def get_plug_state(cloud: tinytuya.Cloud) -> bool | None:
 def main() -> None:
     log.info("Starting smart plug controller")
     log.info("  Location  : Saint Cloud, FL (%.4f, %.4f)", LATITUDE, LONGITUDE)
-    log.info("  Threshold : %.1f°F  (plug ON when temp < threshold)", TEMP_ON_THRESHOLD)
+    log.info("  Threshold : %.1f°F  (plug ON when temp > threshold)", TEMP_ON_THRESHOLD)
     log.info("  Interval  : %d min", CHECK_INTERVAL_SECONDS // 60)
 
     cloud = tinytuya.Cloud(
@@ -108,7 +108,7 @@ def main() -> None:
         try:
             temp = get_temperature_f()
             plug_is_on = get_plug_state(cloud)
-            should_be_on = temp < TEMP_ON_THRESHOLD
+            should_be_on = temp > TEMP_ON_THRESHOLD
 
             log.info(
                 "Temp: %.1f°F  |  Threshold: %.1f°F  |  Plug: %s  |  Should be: %s",
