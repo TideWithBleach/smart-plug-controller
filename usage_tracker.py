@@ -353,7 +353,7 @@ async function load() {
     .map(r => ({ x: +r.temp_max_f, y: +r.on_minutes, label: r.date }));
 
   const peakIdx  = onMin.indexOf(Math.max(...onMin));
-  const lastUpd  = new Date((last.updated_at || "").replace(" ","T") + "Z")
+  const lastUpd  = new Date(last.updated_at || "")
     .toLocaleString("en-US", {timeZone:"America/New_York", hour12:true,
       month:"numeric", day:"numeric", year:"numeric",
       hour:"numeric", minute:"2-digit"}) + " EST";
