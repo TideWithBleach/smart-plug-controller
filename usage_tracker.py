@@ -135,8 +135,9 @@ def compute_daily_stats(events: list[dict]) -> dict[str, dict]:
     stats: dict[str, dict] = {}
     pending_on: int | None = None
 
+    ET = timezone(timedelta(hours=-4))  # EDT (America/New_York)
     def _day(ts_ms: int) -> str:
-        return datetime.fromtimestamp(ts_ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
+        return datetime.fromtimestamp(ts_ms / 1000, tz=ET).strftime("%Y-%m-%d")
 
     def _ensure(d: str) -> None:
         if d not in stats:
@@ -342,7 +343,8 @@ async function load() {
     return;
   }
 
-  const last = rows[rows.length - 1];
+  const todayET = new Date().toLocaleDateString("en-CA", {timeZone:"America/New_York"});
+  const last = rows.find(r => r.date === todayET) || rows[rows.length - 1];
   const dates    = rows.map(r => r.date);
   const onMin    = rows.map(r => +(r.on_minutes || 0));
   const cycles   = rows.map(r => +(r.cycles     || 0));
